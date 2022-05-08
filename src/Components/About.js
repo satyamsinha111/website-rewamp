@@ -55,7 +55,7 @@ function About() {
       <div id="experience">
         <div className="container  mx-auto p-4">
           <span className="font-semibold">My Experiences</span>
-          <table class="table-auto w-full mt-4">
+          <table className="table-auto w-full mt-4">
             <thead className="bg-slate-800	 text-white">
               <tr>
                 <th className="px-2 py-2">S.No</th>
@@ -84,7 +84,7 @@ function About() {
       <div id="education">
         <div className="container  mx-auto p-4">
           <span className="font-semibold">Educational background</span>
-          <table class="table-auto w-full mt-4">
+          <table className="table-auto w-full mt-4">
             <thead className="bg-slate-800	 text-white">
               <tr>
                 <th className="px-2 py-2">S.No</th>
