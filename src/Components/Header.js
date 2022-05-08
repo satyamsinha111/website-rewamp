@@ -5,7 +5,7 @@ function Header() {
   const [menushow, setMenushow] = useState(true);
 
   const handleResize = () => {
-    if (window.innerWidth < 768) {
+    if (window.innerWidth < 768 || window.innerWidth < 1002) {
       setMenushow(false);
     } else {
       setMenushow(true);
