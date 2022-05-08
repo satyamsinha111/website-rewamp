@@ -8,7 +8,7 @@ import mongo from "../assets/mongo.png";
 function Homepage() {
   return (
     <>
-      <div className="container mx-auto p-4">
+      <div className="container mx-auto p-4 select-none	">
         <div className="grid md:grid-cols-2 md:gap-2">
           <div className="p-2 tracking-wide">
             <p>

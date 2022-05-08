@@ -2,7 +2,7 @@ import React from "react";
 
 function About() {
   return (
-    <div className="container mx-auto p-4">
+    <div className="container mx-auto p-4 select-none	">
       <div className="p-2 tracking-wide">
         <p>
           <span className="font-semibold">Hey there, </span> <br />
