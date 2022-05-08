@@ -5,6 +5,7 @@ function Header() {
   const [menushow, setMenushow] = useState(true);
 
   const handleResize = () => {
+    console.log("Hello");
     if (window.innerWidth < 768 || window.innerWidth < 1002) {
       setMenushow(false);
     } else {
@@ -15,7 +16,12 @@ function Header() {
   // create an event listener
   useEffect(() => {
     window.addEventListener("resize", handleResize);
-  });
+    if (window.innerWidth < 768 || window.innerWidth < 1002) {
+      setMenushow(false);
+    } else {
+      setMenushow(true);
+    }
+  }, []);
 
   let toggleMenu = () => {
     console.log("Toggle menu");
@@ -52,18 +58,21 @@ function Header() {
               <Link
                 className="block mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white mr-4"
                 to="about"
+                onClick={toggleMenu}
               >
                 About
               </Link>
               <Link
                 className="block mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white mr-4"
                 to="works"
+                onClick={toggleMenu}
               >
                 Works
               </Link>
               <Link
                 className="block mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white"
                 to="contact"
+                onClick={toggleMenu}
               >
                 Contact
               </Link>
