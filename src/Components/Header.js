@@ -27,11 +27,19 @@ function Header() {
     console.log("Toggle menu");
     setMenushow(!menushow);
   };
+
+  let closeDropdown = () => {
+    console.log("Hello");
+    if (window.innerWidth < 768 || window.innerWidth < 1002) {
+      setMenushow(false);
+    }
+  };
+
   return (
     <>
       <nav className="flex items-center justify-between flex-wrap bg-teal-500 p-6 select-none">
         <div className="flex items-center flex-shrink-0 text-white mr-6">
-          <Link to="/" onClick={toggleMenu}>
+          <Link to="/" onClick={closeDropdown}>
             <span className="font-semibold text-xl tracking-tight">
               Satyam sinha
             </span>
@@ -58,21 +66,21 @@ function Header() {
               <Link
                 className="block mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white mr-4"
                 to="about"
-                onClick={toggleMenu}
+                onClick={closeDropdown}
               >
                 About
               </Link>
               <Link
                 className="block mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white mr-4"
                 to="works"
-                onClick={toggleMenu}
+                onClick={closeDropdown}
               >
                 Works
               </Link>
               <Link
                 className="block mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white"
                 to="contact"
-                onClick={toggleMenu}
+                onClick={closeDropdown}
               >
                 Contact
               </Link>
