@@ -59,7 +59,52 @@ function Homepage() {
             <div className="p-2">
               <span className="font-semibold">Technologies I work on :</span>
               <div className="grid md:grid-cols-4 md:gap-4 py-4">
-                <div id="angular" className="flex justify-center">
+                <ul>
+                  <li>
+                    <a
+                      href="https://angular.io/"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="font-bold text-emerald-800"
+                    >
+                      Angular <i class="fa fa-link ml-2" aria-hidden="true"></i>
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      href="https://reactjs.org/"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="font-bold text-emerald-800"
+                    >
+                      React
+                      <i class="fa fa-link ml-2" aria-hidden="true"></i>
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      href="https://nodejs.org/en/"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="font-bold text-emerald-800"
+                    >
+                      Node JS
+                      <i class="fa fa-link ml-2" aria-hidden="true"></i>
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      href="https://www.mongodb.com/"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="font-bold text-emerald-800"
+                    >
+                      Mongo DB
+                      <i class="fa fa-link ml-2" aria-hidden="true"></i>
+                    </a>
+                  </li>
+                </ul>
+                {/* <div id="angular" className="flex justify-center">
                   <img className="aspect-square" src={angular} alt="angular" />
                 </div>
                 <div id="react">
@@ -70,7 +115,7 @@ function Homepage() {
                 </div>
                 <div id="mongodb">
                   <img className="aspect-square" src={mongo} alt="mongodb" />
-                </div>
+                </div> */}
               </div>
             </div>
           </div>

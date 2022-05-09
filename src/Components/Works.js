@@ -12,7 +12,7 @@ import lco from "../assets/lco.png";
 function Works() {
   return (
     <>
-      <div className="container mx-auto py-4 mx-2 select-none">
+      <div className="container mx-auto py-4 select-none">
         <h4 className="font-semibold">
           Have a look at my works{" "}
           <span className="animate-bounce w-6 h-6">👇</span>
