@@ -1,8 +1,11 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import navsoft from "../assets/navsoft.jpg";
 import { sendMessage } from "../apiutils";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import googlejson from "../assets/youtube-1596388450597-e2cb2e74a52f.json";
+// import { GoogleSpreadsheet } from "google-spreadsheet";
+// const { GoogleSpreadsheet } = require("google-spreadsheet");
 
 function Contact() {
   const [name, setName] = useState("");
@@ -10,6 +13,31 @@ function Contact() {
   const [message, setMessage] = useState("");
   const [loader, setLoader] = useState(false);
 
+  const SPREADSHEET_ID = "1lWyin97zFypPuz0MZksSWggN9BTYDy-kvQO36Y91QZw";
+  const SHEET_ID = "0";
+  const CLIENT_EMAIL = "satyamsinha8158@gmail.com";
+  const PRIVATE_KEY = googlejson.private_key;
+  // const doc = new GoogleSpreadsheet(SPREADSHEET_ID);
+
+  useEffect(() => {
+    appendSpreadsheet([1, "test", 28]);
+  }, []);
+
+  const appendSpreadsheet = async (row) => {
+    // try {
+    //   await doc.useServiceAccountAuth({
+    //     client_email: CLIENT_EMAIL,
+    //     private_key: PRIVATE_KEY,
+    //   });
+    //   // loads document properties and worksheets
+    //   await doc.loadInfo();
+    //   const sheet = doc.sheetsById[SHEET_ID];
+    //   const result = await sheet.addRow(row);
+    //   console.log(result);
+    // } catch (e) {
+    //   console.error("Error: ", e);
+    // }
+  };
   let onSave = async () => {
     console.log({
       name: name,

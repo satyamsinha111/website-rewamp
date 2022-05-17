@@ -1,5 +1,5 @@
 import axios from "axios";
-let baseurl = "http://68.183.141.188:3000/client";
+let baseurl = "https://satyamsinha.online/api/client";
 export const sendMessage = (data) => {
   return axios.post(`${baseurl}/client`, data);
 };
