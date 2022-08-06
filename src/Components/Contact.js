@@ -1,9 +1,11 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect,useRef } from "react";
 import navsoft from "../assets/navsoft.jpg";
 import { sendMessage } from "../apiutils";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import googlejson from "../assets/youtube-1596388450597-e2cb2e74a52f.json";
+import emailjs from '@emailjs/browser';
+
 // import { GoogleSpreadsheet } from "google-spreadsheet";
 // const { GoogleSpreadsheet } = require("google-spreadsheet");
 
@@ -12,6 +14,8 @@ function Contact() {
   const [email, setEmail] = useState("");
   const [message, setMessage] = useState("");
   const [loader, setLoader] = useState(false);
+  const form = useRef();
+
 
   const SPREADSHEET_ID = "1lWyin97zFypPuz0MZksSWggN9BTYDy-kvQO36Y91QZw";
   const SHEET_ID = "0";
@@ -39,20 +43,31 @@ function Contact() {
     // }
   };
   let onSave = async () => {
-    console.log({
-      name: name,
-      email: email,
-      message: message,
-    });
     setLoader(true);
-    let res = await sendMessage({
-      name: name,
-      email: email,
-      message: message,
-    });
-    console.log(res);
-    setLoader(false);
-    toast.success("Message sent we will contact you soon.");
+    emailjs.sendForm('service_swhnw9n', 'template_nt73fya',form.current, 'Pw0tVtGE2EZznviuG')
+      .then((result) => {
+          console.log(result.text);
+          toast.success("Message sent we will contact you soon.");
+          setLoader(false);
+      }, (error) => {
+          console.log(error.text);
+          toast.success("Message sending failed!");
+          setLoader(false);
+      });
+    // console.log({
+    //   name: name,
+    //   email: email,
+    //   message: message,
+    // });
+    // setLoader(true);
+    // let res = await sendMessage({
+    //   name: name,
+    //   email: email,
+    //   message: message,
+    // });
+    // console.log(res);
+    // setLoader(false);
+    
   };
 
   return (
@@ -80,7 +95,7 @@ function Contact() {
               </>
             ) : (
               <div className="w-full">
-                <form className="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
+                <form ref={form} className="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
                   <div className="mb-4">
                     <label
                       className="block text-gray-700 text-sm font-bold mb-2"
@@ -92,6 +107,7 @@ function Contact() {
                       className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
                       id="name"
                       type="text"
+                      name = "from_name"
                       onChange={(ev) => setName(ev.target.value)}
                       placeholder="Your name please"
                     />
@@ -108,6 +124,7 @@ function Contact() {
                       id="email"
                       type="email"
                       placeholder="john@gmail.com"
+                      name="email"
                       onChange={(ev) => setEmail(ev.target.value)}
                     />
                     {/* <p className="text-red-500 text-xs italic">
@@ -118,6 +135,7 @@ function Contact() {
                     <label
                       className="block text-gray-700 text-sm font-bold mb-2"
                       htmlFor="password"
+
                     >
                       Message
                     </label>
@@ -126,6 +144,7 @@ function Contact() {
                       id="email"
                       type="text"
                       placeholder="Your message"
+                      name="message"
                       onChange={(ev) => setMessage(ev.target.value)}
                     ></textarea>
                     {/* <p className="text-red-500 text-xs italic">
